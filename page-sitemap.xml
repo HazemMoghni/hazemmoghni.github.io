@@ -2,7 +2,10 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
 		<loc>https://hazemmoghni.github.io/</loc>
-		<lastmod>2024-09-13T21:37:54+00:00</lastmod>
+		<lastmod>2024-09-24T22:36:29+00:00</lastmod>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-2.jpg</image:loc>
+		</image:image>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-2.jpg</image:loc>
 		</image:image>
@@ -20,30 +23,12 @@
 		</image:image>
 	</url>
 	<url>
-		<loc>https://hazemmoghni.github.io/guides/</loc>
-		<lastmod>2024-09-13T20:25:49+00:00</lastmod>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/imageedit_1_7162077057-1.jpg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/anonymous-mask.jpg</image:loc>
-		</image:image>
-	</url>
-	<url>
-		<loc>https://hazemmoghni.github.io/cybersecurity/</loc>
-		<lastmod>2024-09-13T20:30:06+00:00</lastmod>
-	</url>
-	<url>
-		<loc>https://hazemmoghni.github.io/blog/</loc>
-		<lastmod>2024-09-13T20:40:42+00:00</lastmod>
-	</url>
-	<url>
 		<loc>https://hazemmoghni.github.io/capstone-project/documents/</loc>
-		<lastmod>2024-09-13T21:09:14+00:00</lastmod>
+		<lastmod>2024-09-24T08:47:27+00:00</lastmod>
 	</url>
 	<url>
 		<loc>https://hazemmoghni.github.io/capstone-project/</loc>
-		<lastmod>2024-09-14T00:39:10+00:00</lastmod>
+		<lastmod>2024-09-24T22:17:25+00:00</lastmod>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Prototype.png</image:loc>
 		</image:image>
@@ -55,17 +40,44 @@
 		</image:image>
 	</url>
 	<url>
+		<loc>https://hazemmoghni.github.io/cybersecurity/</loc>
+		<lastmod>2024-09-24T22:19:11+00:00</lastmod>
+	</url>
+	<url>
+		<loc>https://hazemmoghni.github.io/guides/</loc>
+		<lastmod>2024-09-24T22:59:24+00:00</lastmod>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/person-holding-compass-691637-scaled.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/imageedit_1_7162077057-1.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/anonymous-mask.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
 		<loc>https://hazemmoghni.github.io/archive/</loc>
-		<lastmod>2024-09-19T19:39:49+00:00</lastmod>
+		<lastmod>2024-09-25T00:30:24+00:00</lastmod>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/gray-steel-file-cabinet-1370294-scaled.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://hazemmoghni.github.io/blog/</loc>
+		<lastmod>2024-09-25T02:17:59+00:00</lastmod>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/1000_F_224481041_ItQugZ5G475a91nSIk8kQrIDG08LMWbU1.jpg</image:loc>
+		</image:image>
 	</url>
 	<url>
 		<loc>https://hazemmoghni.github.io/about/</loc>
-		<lastmod>2024-09-19T21:57:29+00:00</lastmod>
+		<lastmod>2024-09-25T02:22:57+00:00</lastmod>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-3.jpg</image:loc>
 		</image:image>
 		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Hazem_Moghni__2_-removebg-preview.png</image:loc>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-3.jpg</image:loc>
 		</image:image>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Mans-Search-for-Meaning-1.webp</image:loc>
