@@ -12,7 +12,7 @@
 	<atom:link href="https://hazemmoghni.github.io/blog/category/informational/feed/" rel="self" type="application/rss+xml" />
 	<link>https://hazemmoghni.github.io/</link>
 	<description>Creating content about Egypt STEM Schools and studying abroad</description>
-	<lastBuildDate>Wed, 25 Sep 2024 02:22:57 +0000</lastBuildDate>
+	<lastBuildDate>Sat, 28 Sep 2024 00:26:22 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -27,5 +27,21 @@
 	<width>32</width>
 	<height>32</height>
 </image> 
-</channel>
+	<item>
+		<title>The Sad Story of Egypt STEM Schools</title>
+		<link>https://hazemmoghni.github.io/blog/the-sad-story-of-egypt-stem-schools/</link>
+		
+		<dc:creator><![CDATA[Hazem Moghni]]></dc:creator>
+		<pubDate>Fri, 27 Sep 2024 21:00:00 +0000</pubDate>
+				<category><![CDATA[Informational]]></category>
+		<guid isPermaLink="false">https://hazemmoghni.github.io/?p=1277</guid>
+
+					<description><![CDATA[<p>I mention Egypt STEM Schools a lot on my website, but what exactly are they? For starters, they are a failed project.</p>
+<p>The post <a href="https://hazemmoghni.github.io/blog/the-sad-story-of-egypt-stem-schools/">The Sad Story of Egypt STEM Schools</a> appeared first on <a href="https://hazemmoghni.github.io/">Hazem Moghni</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+	</channel>
 </rss>
