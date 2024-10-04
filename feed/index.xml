@@ -12,7 +12,7 @@
 	<atom:link href="https://hazemmoghni.github.io/feed/" rel="self" type="application/rss+xml" />
 	<link>https://hazemmoghni.github.io/</link>
 	<description>Creating content about Egypt STEM Schools and studying abroad</description>
-	<lastBuildDate>Fri, 04 Oct 2024 08:20:26 +0000</lastBuildDate>
+	<lastBuildDate>Fri, 04 Oct 2024 08:44:27 +0000</lastBuildDate>
 	<language>en-US</language>
 	<sy:updatePeriod>
 	hourly	</sy:updatePeriod>
@@ -51,6 +51,7 @@
 		<dc:creator><![CDATA[Hazem Moghni]]></dc:creator>
 		<pubDate>Fri, 27 Sep 2024 21:00:00 +0000</pubDate>
 				<category><![CDATA[Informational]]></category>
+		<category><![CDATA[Education]]></category>
 		<guid isPermaLink="false">https://hazemmoghni.github.io/?p=1277</guid>
 
 					<description><![CDATA[<p>I mention Egypt STEM Schools a lot on my website, but what exactly are they? For starters, they are a failed project.</p>
