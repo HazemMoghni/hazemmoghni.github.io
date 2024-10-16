@@ -54,28 +54,6 @@
 		</image:image>
 	</url>
 	<url>
-		<loc>https://hazemmoghni.github.io/about/</loc>
-		<lastmod>2024-10-05T20:32:05+00:00</lastmod>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-3.jpg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-3.jpg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Mans-Search-for-Meaning-1.webp</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Everything-Everywhere-All-at-Once-scaled.jpg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/LImperatrice.jpg</image:loc>
-		</image:image>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Reuters.webp</image:loc>
-		</image:image>
-	</url>
-	<url>
 		<loc>https://hazemmoghni.github.io/blog/</loc>
 		<lastmod>2024-10-13T12:59:19+00:00</lastmod>
 		<image:image>
@@ -93,6 +71,28 @@
 		</image:image>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Example-poster-2-1.png</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://hazemmoghni.github.io/about/</loc>
+		<lastmod>2024-10-16T20:46:06+00:00</lastmod>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-3.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-3.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Mans-Search-for-Meaning-1.webp</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Everything-Everywhere-All-at-Once-scaled.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/LImperatrice.jpg</image:loc>
+		</image:image>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Reuters.webp</image:loc>
 		</image:image>
 	</url>
 </urlset>
