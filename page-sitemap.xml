@@ -30,10 +30,6 @@
 		<lastmod>2024-09-24T08:47:27+00:00</lastmod>
 	</url>
 	<url>
-		<loc>https://hazemmoghni.github.io/cybersecurity/</loc>
-		<lastmod>2024-09-24T22:19:11+00:00</lastmod>
-	</url>
-	<url>
 		<loc>https://hazemmoghni.github.io/guides/</loc>
 		<lastmod>2024-09-24T22:59:24+00:00</lastmod>
 		<image:image>
@@ -54,13 +50,6 @@
 		</image:image>
 	</url>
 	<url>
-		<loc>https://hazemmoghni.github.io/blog/</loc>
-		<lastmod>2024-10-13T12:59:19+00:00</lastmod>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/1000_F_224481041_ItQugZ5G475a91nSIk8kQrIDG08LMWbU1.jpg</image:loc>
-		</image:image>
-	</url>
-	<url>
 		<loc>https://hazemmoghni.github.io/capstone-project/</loc>
 		<lastmod>2024-10-15T20:22:42+00:00</lastmod>
 		<image:image>
@@ -74,8 +63,12 @@
 		</image:image>
 	</url>
 	<url>
+		<loc>https://hazemmoghni.github.io/cybersecurity/</loc>
+		<lastmod>2024-10-18T19:50:53+00:00</lastmod>
+	</url>
+	<url>
 		<loc>https://hazemmoghni.github.io/about/</loc>
-		<lastmod>2024-10-16T20:46:06+00:00</lastmod>
+		<lastmod>2024-10-18T19:53:56+00:00</lastmod>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Personal-Picture-3.jpg</image:loc>
 		</image:image>
@@ -93,6 +86,13 @@
 		</image:image>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/Reuters.webp</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://hazemmoghni.github.io/blog/</loc>
+		<lastmod>2024-10-18T20:00:11+00:00</lastmod>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/1000_F_224481041_ItQugZ5G475a91nSIk8kQrIDG08LMWbU1.jpg</image:loc>
 		</image:image>
 	</url>
 </urlset>
