@@ -43,13 +43,6 @@
 		</image:image>
 	</url>
 	<url>
-		<loc>https://hazemmoghni.github.io/archive/</loc>
-		<lastmod>2024-09-25T02:36:05+00:00</lastmod>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/gray-steel-file-cabinet-1370294-scaled.jpg</image:loc>
-		</image:image>
-	</url>
-	<url>
 		<loc>https://hazemmoghni.github.io/capstone-project/</loc>
 		<lastmod>2024-10-15T20:22:42+00:00</lastmod>
 		<image:image>
@@ -93,6 +86,13 @@
 		<lastmod>2024-10-18T20:00:11+00:00</lastmod>
 		<image:image>
 			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/1000_F_224481041_ItQugZ5G475a91nSIk8kQrIDG08LMWbU1.jpg</image:loc>
+		</image:image>
+	</url>
+	<url>
+		<loc>https://hazemmoghni.github.io/archive/</loc>
+		<lastmod>2024-10-19T22:51:36+00:00</lastmod>
+		<image:image>
+			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/gray-steel-file-cabinet-1370294-scaled.jpg</image:loc>
 		</image:image>
 	</url>
 </urlset>
