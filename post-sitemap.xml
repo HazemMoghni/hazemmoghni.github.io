@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type="text/xsl" href="https://hazemmoghni.github.io/main-sitemap.xsl"?>
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd http://www.google.com/schemas/sitemap-image/1.1 http://www.google.com/schemas/sitemap-image/1.1/sitemap-image.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
-		<loc>https://hazemmoghni.github.io/blog/youtube-why-how-and-what/</loc>
-		<lastmod>2024-09-27T23:47:56+00:00</lastmod>
-		<image:image>
-			<image:loc>https://hazemmoghni.github.io/wp-content/uploads/2024/09/person-holding-space-gray-iphone-5-34407-scaled.jpg</image:loc>
-		</image:image>
-	</url>
-	<url>
 		<loc>https://hazemmoghni.github.io/blog/im-a-pessimist-and-so-should-you/</loc>
 		<lastmod>2024-09-28T00:26:32+00:00</lastmod>
 		<image:image>
