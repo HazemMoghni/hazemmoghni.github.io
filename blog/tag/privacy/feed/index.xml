@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"
+	xmlns:content="http://purl.org/rss/1.0/modules/content/"
+	xmlns:wfw="http://wellformedweb.org/CommentAPI/"
+	xmlns:dc="http://purl.org/dc/elements/1.1/"
+	xmlns:atom="http://www.w3.org/2005/Atom"
+	xmlns:sy="http://purl.org/rss/1.0/modules/syndication/"
+	xmlns:slash="http://purl.org/rss/1.0/modules/slash/"
+	>
+
+<channel>
+	<title>Hazem Moghni - Egyptian Student</title>
+	<atom:link href="https://hazemmoghni.github.io/blog/tag/privacy/feed/" rel="self" type="application/rss+xml" />
+	<link>https://hazemmoghni.github.io/</link>
+	<description>Friday Blog writer, Egypt2USA founder, Capstone Project Guide author</description>
+	<lastBuildDate>Sun, 24 Nov 2024 00:28:23 +0000</lastBuildDate>
+	<language>en-US</language>
+	<sy:updatePeriod>
+	hourly	</sy:updatePeriod>
+	<sy:updateFrequency>
+	1	</sy:updateFrequency>
+	<generator>https://wordpress.org/?v=6.7.1</generator>
+
+<image>
+	<url>https://hazemmoghni.github.io/wp-content/uploads/2024/09/cropped-Site-Icon-32x32.png</url>
+	<title>Hazem Moghni - Egyptian Student</title>
+	<link>https://hazemmoghni.github.io/</link>
+	<width>32</width>
+	<height>32</height>
+</image> 
+	<item>
+		<title>The Layman&#8217;s Guide to Online Anonymity</title>
+		<link>https://hazemmoghni.github.io/blog/the-laymans-guide-to-online-anonymity/</link>
+		
+		<dc:creator><![CDATA[Hazem Moghni]]></dc:creator>
+		<pubDate>Sat, 23 Nov 2024 20:00:08 +0000</pubDate>
+				<category><![CDATA[Informational]]></category>
+		<category><![CDATA[Privacy]]></category>
+		<guid isPermaLink="false">https://hazemmoghni.github.io/?p=1574</guid>
+
+					<description><![CDATA[<p>Inspired by The Hitchhiker’s Guide to Online Anonymity, here is how to stay anonymous on the internet without being a tech expert.</p>
+<p>The post <a href="https://hazemmoghni.github.io/blog/the-laymans-guide-to-online-anonymity/">The Layman&#8217;s Guide to Online Anonymity</a> appeared first on <a href="https://hazemmoghni.github.io/">Hazem Moghni</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+		<item>
+		<title>Five Reasons to Care About Privacy</title>
+		<link>https://hazemmoghni.github.io/blog/five-reasons-to-care-about-privacy/</link>
+		
+		<dc:creator><![CDATA[Hazem Moghni]]></dc:creator>
+		<pubDate>Fri, 18 Oct 2024 19:51:28 +0000</pubDate>
+				<category><![CDATA[Opinions]]></category>
+		<category><![CDATA[Privacy]]></category>
+		<guid isPermaLink="false">https://hazemmoghni.github.io/?p=1512</guid>
+
+					<description><![CDATA[<p>Have you ever heard someone say, "I have nothing to hide"? I am here to DESTROY that statement—because privacy is way more than just hiding.</p>
+<p>The post <a href="https://hazemmoghni.github.io/blog/five-reasons-to-care-about-privacy/">Five Reasons to Care About Privacy</a> appeared first on <a href="https://hazemmoghni.github.io/">Hazem Moghni</a>.</p>
+]]></description>
+		
+		
+		
+			</item>
+	</channel>
+</rss>
