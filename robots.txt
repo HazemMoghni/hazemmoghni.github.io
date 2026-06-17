@@ -1,6 +1,9 @@
-# hazemh.com — please don't crawl, index, archive, or train on this site.
-# Note: robots.txt is advisory. Well-behaved crawlers honor it; some
-# (including the Internet Archive / Wayback Machine and bad actors) may not.
+# hazemh.com
+# Search engines: welcome. AI/LLM crawlers and web archivers: please stay out.
+# Note: robots.txt is advisory; some bots (incl. the Wayback Machine and bad
+# actors) may ignore it.
+
+Sitemap: https://hazemh.com/sitemap.xml
 
 # --- AI / LLM crawlers (training + retrieval) ---
 User-agent: GPTBot
@@ -34,18 +37,6 @@ User-agent: ia_archiver
 User-agent: archive.org_bot
 Disallow: /
 
-# --- Link-preview unfurlers: allowed so shared links still show a card ---
-User-agent: Twitterbot
-User-agent: facebookexternalhit
-User-agent: LinkedInBot
-User-agent: Slackbot
-User-agent: Slackbot-LinkExpanding
-User-agent: Discordbot
-User-agent: TelegramBot
-User-agent: WhatsApp
-User-agent: Mastodon
-Allow: /
-
-# --- Everyone else (search engines, generic crawlers) ---
+# --- Everyone else (Google, Bing, generic crawlers): full access ---
 User-agent: *
-Disallow: /
+Disallow:
