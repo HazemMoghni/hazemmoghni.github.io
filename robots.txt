@@ -1,0 +1,51 @@
+# hazemh.com — please don't crawl, index, archive, or train on this site.
+# Note: robots.txt is advisory. Well-behaved crawlers honor it; some
+# (including the Internet Archive / Wayback Machine and bad actors) may not.
+
+# --- AI / LLM crawlers (training + retrieval) ---
+User-agent: GPTBot
+User-agent: ChatGPT-User
+User-agent: OAI-SearchBot
+User-agent: ClaudeBot
+User-agent: Claude-Web
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: CCBot
+User-agent: Google-Extended
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot-Extended
+User-agent: Meta-ExternalAgent
+User-agent: Meta-ExternalFetcher
+User-agent: FacebookBot
+User-agent: Bytespider
+User-agent: Amazonbot
+User-agent: cohere-ai
+User-agent: Diffbot
+User-agent: Omgilibot
+User-agent: YouBot
+User-agent: ImagesiftBot
+User-agent: Timpibot
+User-agent: PanguBot
+Disallow: /
+
+# --- Web archivers ---
+User-agent: ia_archiver
+User-agent: archive.org_bot
+Disallow: /
+
+# --- Link-preview unfurlers: allowed so shared links still show a card ---
+User-agent: Twitterbot
+User-agent: facebookexternalhit
+User-agent: LinkedInBot
+User-agent: Slackbot
+User-agent: Slackbot-LinkExpanding
+User-agent: Discordbot
+User-agent: TelegramBot
+User-agent: WhatsApp
+User-agent: Mastodon
+Allow: /
+
+# --- Everyone else (search engines, generic crawlers) ---
+User-agent: *
+Disallow: /

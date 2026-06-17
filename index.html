@@ -5,6 +5,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hazem Hassan</title>
 <meta name="description" content="Hazem Hassan — mechanical engineering and AI safety at the University of Pennsylvania.">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='7' fill='%233B49DF'/><text x='16' y='23' font-family='system-ui,sans-serif' font-size='20' font-weight='700' fill='%23fff' text-anchor='middle'>H</text></svg>">
+<!-- Social / link previews -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://hazemh.com/">
+<meta property="og:title" content="Hazem Hassan">
+<meta property="og:description" content="Mechanical engineering and AI safety at the University of Pennsylvania.">
+<meta property="og:image" content="https://hazemh.com/headshot.jpg">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:creator" content="@hazemmoghni">
 <style>
   :root{
     --bg:#FCFCFD;
@@ -49,28 +59,34 @@
   }
 
   /* header */
+  .id{
+    display:flex;
+    align-items:center;
+    gap:1.15rem;
+    margin:0 0 2.2rem;
+  }
   .avatar{
     width:84px;height:84px;
+    flex-shrink:0;
     border-radius:50%;
     object-fit:cover;
-    display:block;
-    margin:0 0 1.4rem;
     border:1px solid var(--hair);
   }
+  .id-text{min-width:0}
   h1{
-    font-size:clamp(1.9rem,6vw,2.45rem);
+    font-size:clamp(1.7rem,5.5vw,2.25rem);
     font-weight:600;
     letter-spacing:-.02em;
-    margin:0 0 1.1rem;
+    margin:0 0 .5rem;
     line-height:1.1;
   }
   .status{
     color:var(--muted);
-    margin:0 0 .35rem;
+    margin:0 0 .3rem;
   }
+  .status:last-child{margin-bottom:0}
   .status a{color:inherit;text-decoration:none;border-bottom:1px solid var(--hair)}
   .status a:hover{border-bottom-color:var(--accent);color:var(--accent)}
-  header > .status:last-of-type{margin-bottom:2.2rem}
 
   /* prose */
   .bio{margin:0 0 2.6rem;color:var(--ink)}
@@ -121,6 +137,11 @@
 
   a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
 
+  /* narrow screens: stack the identity header so the meta lines get full width */
+  @media (max-width:30rem){
+    .id{flex-direction:column;align-items:flex-start;gap:1rem}
+  }
+
   /* quiet page-load motion */
   .reveal{opacity:0;transform:translateY(6px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
   .reveal:nth-child(1){animation-delay:.02s}
@@ -138,18 +159,22 @@
   <main class="wrap">
 
     <header class="reveal">
-      <img class="avatar" src="headshot.jpg" alt="Hazem Hassan" width="84" height="84">
-      <h1>Hazem Hassan</h1>
-      <!-- The standing word, plus the order and "prev." prefix of these two lines,
-           are set on load by the engine below. This markup is the no-JS fallback
-           (the current "rising" state: role leads, standing below). -->
-      <p class="status mono" id="line-role">
-        <span id="role-prefix"></span>Robotics Researcher @ <a href="https://dair.seas.upenn.edu/">DAIR Lab</a>, Penn
-      </p>
-      <p class="status mono" id="line-standing">
-        <span class="standing" id="standing">Rising Sophomore</span>
-        @ University of Pennsylvania
-      </p>
+      <div class="id">
+        <img class="avatar" src="headshot.jpg" alt="Hazem Hassan" width="84" height="84">
+        <div class="id-text">
+          <h1>Hazem Hassan</h1>
+          <!-- The standing word, plus the order and "prev." prefix of these two lines,
+               are set on load by the engine below. This markup is the no-JS fallback
+               (the current "rising" state: role leads, standing below). -->
+          <p class="status mono" id="line-role">
+            <span id="role-prefix"></span>Robotics Researcher @ <a href="https://dair.seas.upenn.edu/">DAIR Lab</a>, Penn
+          </p>
+          <p class="status mono" id="line-standing">
+            <span class="standing" id="standing">Rising Sophomore</span>
+            @ University of Pennsylvania
+          </p>
+        </div>
+      </div>
     </header>
 
     <p class="bio reveal">
@@ -186,6 +211,7 @@
       <a href="https://www.linkedin.com/in/hazem-h">LinkedIn</a>
       <a href="https://x.com/hazemmoghni">Twitter</a>
       <a href="https://hazemhasan.substack.com">Substack</a>
+      <a href="https://app.reclaim.ai/m/hazem/chat">Talk to me</a>
     </section>
 
     <footer class="reveal mono">
@@ -259,12 +285,12 @@ function buildEvents(){
   // Layout: while "rising" (between school years) the research role leads and reads
   // as current; during the school year the standing leads and the role reads as prior.
   const rising = label.indexOf("Rising") === 0;
-  const header = document.querySelector("header");
   const roleLine = document.getElementById("line-role");
   const standingLine = document.getElementById("line-standing");
+  const lines = standingLine.parentNode;
   document.getElementById("role-prefix").textContent = rising ? "" : "prev. ";
-  if (rising) header.insertBefore(roleLine, standingLine);
-  else        header.insertBefore(standingLine, roleLine);
+  if (rising) lines.insertBefore(roleLine, standingLine);
+  else        lines.insertBefore(standingLine, roleLine);
 
   document.getElementById("year").textContent = today.getFullYear();
 })();
