@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hazem Hassan</title>
+<meta name="description" content="Hazem Hassan — mechanical engineering and AI safety at the University of Pennsylvania.">
+<style>
+  :root{
+    --bg:#FCFCFD;
+    --ink:#16181D;
+    --muted:#6B7077;
+    --faint:#9AA0A6;
+    --hair:#E7E8EC;
+    --accent:#3B49DF;
+    --token:#EEF0FE;
+    --maxw:36rem;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --bg:#0E0F12;
+      --ink:#E9EAED;
+      --muted:#9AA0A6;
+      --faint:#6B7077;
+      --hair:#23252B;
+      --accent:#8B93FF;
+      --token:#1A1D2B;
+    }
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font:400 1.05rem/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+  .wrap{
+    max-width:var(--maxw);
+    margin:0 auto;
+    padding:clamp(3.5rem,12vh,8rem) 1.4rem 4rem;
+  }
+  .mono{
+    font-family:ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size:.82rem;
+    letter-spacing:.01em;
+  }
+
+  /* header */
+  .avatar{
+    width:84px;height:84px;
+    border-radius:50%;
+    object-fit:cover;
+    display:block;
+    margin:0 0 1.4rem;
+    border:1px solid var(--hair);
+  }
+  h1{
+    font-size:clamp(1.9rem,6vw,2.45rem);
+    font-weight:600;
+    letter-spacing:-.02em;
+    margin:0 0 1.1rem;
+    line-height:1.1;
+  }
+  .status{
+    color:var(--muted);
+    margin:0 0 .35rem;
+  }
+  .status .standing{
+    color:var(--ink);
+    background:var(--token);
+    padding:.08em .4em;
+    border-radius:.32rem;
+  }
+  .status.last{margin-bottom:2.2rem}
+
+  /* prose */
+  .bio{margin:0 0 2.6rem;color:var(--ink)}
+  .bio a{color:var(--accent);text-decoration:none;border-bottom:1px solid var(--hair)}
+  .bio a:hover{border-bottom-color:var(--accent)}
+
+  /* sections */
+  .label{
+    color:var(--faint);
+    text-transform:uppercase;
+    letter-spacing:.12em;
+    font-size:.7rem;
+    margin:0 0 1rem;
+  }
+  section{margin:0 0 2.6rem}
+
+  .writing{list-style:none;margin:0 0 .9rem;padding:0}
+  .writing li{
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    align-items:baseline;
+    padding:.55rem 0;
+    border-top:1px solid var(--hair);
+  }
+  .writing li:last-child{border-bottom:1px solid var(--hair)}
+  .writing a{color:var(--ink);text-decoration:none}
+  .writing a:hover{color:var(--accent)}
+  .writing .meta{color:var(--faint);white-space:nowrap;flex-shrink:0}
+  .archive{color:var(--accent);text-decoration:none}
+  .archive:hover{text-decoration:underline}
+
+  /* links row */
+  .links{display:flex;flex-wrap:wrap;gap:1.4rem;margin:0}
+  .links a{color:var(--ink);text-decoration:none;border-bottom:1px solid var(--hair)}
+  .links a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+
+  footer{
+    margin-top:3.2rem;
+    padding-top:1.2rem;
+    border-top:1px solid var(--hair);
+    color:var(--faint);
+    display:flex;
+    justify-content:space-between;
+    gap:1rem;
+    flex-wrap:wrap;
+  }
+
+  a:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:2px}
+
+  /* quiet page-load motion */
+  .reveal{opacity:0;transform:translateY(6px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
+  .reveal:nth-child(1){animation-delay:.02s}
+  .reveal:nth-child(2){animation-delay:.08s}
+  .reveal:nth-child(3){animation-delay:.14s}
+  .reveal:nth-child(4){animation-delay:.20s}
+  .reveal:nth-child(5){animation-delay:.26s}
+  @keyframes rise{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion: reduce){
+    .reveal{animation:none;opacity:1;transform:none}
+  }
+</style>
+</head>
+<body>
+  <main class="wrap">
+
+    <header class="reveal">
+      <img class="avatar" src="headshot.jpg" alt="Hazem Hassan" width="84" height="84">
+      <h1>Hazem Hassan</h1>
+      <!-- The .standing word is computed on load. The text here is a no-JS fallback. -->
+      <p class="status mono">
+        <span class="standing" id="standing">Rising Sophomore</span>
+        · University of Pennsylvania
+      </p>
+      <p class="status last mono">Robotics researcher · DAIR Lab, Penn</p>
+    </header>
+
+    <p class="bio reveal">
+      I study mechanical engineering at Penn, where I run
+      <a href="https://www.eapenn.org">Effective Altruism at Penn</a>, am a
+      <a href="https://perryworldhouse.upenn.edu/opportunities/student-opportunities/world-house-student-fellows/">Perry World House Fellow</a>,
+      and TA the engineering ethics course. I write occasionally about surveillance,
+      AI safety, and philosophy (see below). I also
+      <a href="https://www.metaculus.com/accounts/profile/289631/">forecast</a> geopolitics and
+      <a href="https://x.com/hazemmoghni">tweet</a> a lot.
+    </p>
+
+    <section class="reveal">
+      <p class="label">Writing</p>
+      <!-- Maintained by hand, newest first. -->
+      <ul class="writing">
+        <li>
+          <a href="https://hazemhasan.substack.com/p/flock-cameras-are-here-the-limits">Flock Cameras Are Here. The Limits Aren't.</a>
+          <span class="meta mono">May 19, 2026</span>
+        </li>
+        <li>
+          <a href="https://hazemhasan.substack.com/p/when-is-pascal-wager-esque-reasoning">When Is Pascal-Wager-esque Reasoning Sound?</a>
+          <span class="meta mono">May 1, 2026</span>
+        </li>
+        <li>
+          <a href="https://hazemhasan.substack.com/p/what-is-the-expected-value-of-working">What is the Expected Value of Working on AI Safety? I Ran the Numbers.</a>
+          <span class="meta mono">April 8, 2026</span>
+        </li>
+      </ul>
+      <a class="archive mono" href="https://hazemhasan.substack.com/archive">Full archive on Substack →</a>
+    </section>
+
+    <section class="links reveal mono">
+      <a href="https://www.linkedin.com/in/hazem-h">LinkedIn</a>
+      <a href="https://x.com/hazemmoghni">Twitter</a>
+      <a href="https://hazemhasan.substack.com">Substack</a>
+    </section>
+
+    <footer class="reveal mono">
+      <span>© Hazem Hassan <span id="year"></span></span>
+    </footer>
+
+  </main>
+
+<script>
+/* =====================================================================
+   PENN STANDING — auto-updating from the stored academic calendar.
+
+   How it works: each transition (start of a fall term, or the day after a
+   spring term ends) is an event with a label. The current standing is the
+   most recent past event; "next" is the soonest future one.
+
+   To maintain: when Penn publishes new dates at
+   almanac.upenn.edu/penn-academic-calendar, update the two maps below.
+   Values marked EST are estimates (Penn had not published them yet) and
+   should be replaced when official dates exist.
+   ===================================================================== */
+
+const ENTRY_FALL_YEAR = 2025;          // first fall enrolled
+const STANDINGS = ["First-year", "Sophomore", "Junior", "Senior"];
+
+// First day of fall classes, by calendar year.
+const FALL_START = {
+  2025: "2025-08-26",
+  2026: "2026-08-25",
+  2027: "2027-08-31",
+  2028: "2028-08-25"   // EST — 2028-29 not yet published
+};
+
+// Day the spring term ends (graduation-side boundary), by calendar year.
+const SPRING_END = {
+  2026: "2026-05-18",  // EST
+  2027: "2027-05-24",
+  2028: "2028-05-15",
+  2029: "2029-05-18"   // EST — graduation
+};
+
+// ---- engine -----------------------------------------------------------
+function d(s){ const [y,m,day] = s.split("-").map(Number); return new Date(y, m-1, day); }
+function nextDay(date){ const n = new Date(date); n.setDate(n.getDate()+1); return n; }
+function fallStart(y){ return d(FALL_START[y] || (y + "-08-25")); }   // fallback
+function springEnd(y){ return d(SPRING_END[y] || (y + "-05-16")); }   // fallback
+
+function buildEvents(){
+  const ev = [];
+  for (let i = 0; i < STANDINGS.length; i++){
+    const fy = ENTRY_FALL_YEAR + i;
+    ev.push({ date: fallStart(fy), label: STANDINGS[i] });
+    const after = nextDay(springEnd(fy + 1));
+    ev.push({ date: after, label: i < STANDINGS.length - 1 ? "Rising " + STANDINGS[i+1] : "Penn alumnus" });
+  }
+  return ev.sort((a,b) => a.date - b.date);
+}
+
+(function render(){
+  const today = new Date(); today.setHours(0,0,0,0);
+  const events = buildEvents();
+
+  let current = null;
+  for (const e of events){
+    if (e.date <= today) current = e; else break;
+  }
+
+  if (current) document.getElementById("standing").textContent = current.label;
+  document.getElementById("year").textContent = today.getFullYear();
+})();
+</script>
+</body>
+</html>
