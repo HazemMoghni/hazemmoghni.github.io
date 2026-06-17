@@ -68,13 +68,9 @@
     color:var(--muted);
     margin:0 0 .35rem;
   }
-  .status .standing{
-    color:var(--ink);
-    background:var(--token);
-    padding:.08em .4em;
-    border-radius:.32rem;
-  }
-  .status.last{margin-bottom:2.2rem}
+  .status a{color:inherit;text-decoration:none;border-bottom:1px solid var(--hair)}
+  .status a:hover{border-bottom-color:var(--accent);color:var(--accent)}
+  header > .status:last-of-type{margin-bottom:2.2rem}
 
   /* prose */
   .bio{margin:0 0 2.6rem;color:var(--ink)}
@@ -144,12 +140,16 @@
     <header class="reveal">
       <img class="avatar" src="headshot.jpg" alt="Hazem Hassan" width="84" height="84">
       <h1>Hazem Hassan</h1>
-      <!-- The .standing word is computed on load. The text here is a no-JS fallback. -->
-      <p class="status mono">
-        <span class="standing" id="standing">Rising Sophomore</span>
-        · University of Pennsylvania
+      <!-- The standing word, plus the order and "prev." prefix of these two lines,
+           are set on load by the engine below. This markup is the no-JS fallback
+           (the current "rising" state: role leads, standing below). -->
+      <p class="status mono" id="line-role">
+        <span id="role-prefix"></span>Robotics Researcher @ <a href="https://dair.seas.upenn.edu/">DAIR Lab</a>, Penn
       </p>
-      <p class="status last mono">Robotics researcher · DAIR Lab, Penn</p>
+      <p class="status mono" id="line-standing">
+        <span class="standing" id="standing">Rising Sophomore</span>
+        @ University of Pennsylvania
+      </p>
     </header>
 
     <p class="bio reveal">
@@ -253,7 +253,19 @@ function buildEvents(){
     if (e.date <= today) current = e; else break;
   }
 
-  if (current) document.getElementById("standing").textContent = current.label;
+  const label = current ? current.label : "Rising Sophomore";
+  document.getElementById("standing").textContent = label;
+
+  // Layout: while "rising" (between school years) the research role leads and reads
+  // as current; during the school year the standing leads and the role reads as prior.
+  const rising = label.indexOf("Rising") === 0;
+  const header = document.querySelector("header");
+  const roleLine = document.getElementById("line-role");
+  const standingLine = document.getElementById("line-standing");
+  document.getElementById("role-prefix").textContent = rising ? "" : "prev. ";
+  if (rising) header.insertBefore(roleLine, standingLine);
+  else        header.insertBefore(standingLine, roleLine);
+
   document.getElementById("year").textContent = today.getFullYear();
 })();
 </script>
