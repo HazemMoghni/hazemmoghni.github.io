@@ -183,22 +183,14 @@
         <img class="avatar" src="headshot.jpg" alt="Hazem Hassan" width="84" height="84">
         <div class="id-text">
           <h1>Hazem Hassan</h1>
-          <!-- The standing word, plus the order and "prev." prefix of these two lines,
-               are set on load by the engine below. This markup is the no-JS fallback
-               (the current "rising" state: role leads, standing below). -->
-          <p class="status mono" id="line-role">
-            <span id="role-prefix"></span>Robotics Researcher @ <a href="https://dair.seas.upenn.edu/">DAIR Lab</a>, Penn
-          </p>
-          <p class="status mono" id="line-standing">
-            <span class="standing" id="standing">Rising Sophomore</span>
-            @ University of Pennsylvania
-          </p>
+          <p class="status mono" id="role"><span id="role-prefix"></span>Robotics Researcher @ <a href="https://dair.seas.upenn.edu/">DAIR Lab</a>, Penn</p>
+          <p class="status mono">Philadelphia, USA</p>
         </div>
       </div>
     </header>
 
     <p class="bio reveal">
-      I study mechanical engineering at Penn, where I run
+      I'm a <span class="standing" id="standing">rising sophomore</span> studying mechanical engineering at Penn, where I run
       <a href="https://www.eapenn.org">Effective Altruism at Penn</a>, am a
       <a href="https://perryworldhouse.upenn.edu/opportunities/student-opportunities/world-house-student-fellows/">Perry World House Fellow</a>,
       and TA for Engineering Ethics. I write occasionally about philosophy
@@ -262,6 +254,12 @@
 const ENTRY_FALL_YEAR = 2025;          // first fall enrolled
 const STANDINGS = ["First-year", "Sophomore", "Junior", "Senior"];
 
+// Role shown under the name: plain during ROLE_CURRENT (the summer it happened),
+// "prev." during ROLE_RECENT (the school year after), hidden otherwise (until a
+// new role is added — update these two and the #role line when that happens).
+const ROLE_CURRENT = "Rising Sophomore";
+const ROLE_RECENT  = "Sophomore";
+
 // First day of fall classes, by calendar year.
 const FALL_START = {
   2025: "2025-08-26",
@@ -305,17 +303,19 @@ function buildEvents(){
   }
 
   const label = current ? current.label : "Rising Sophomore";
-  document.getElementById("standing").textContent = label;
 
-  // Layout: while "rising" (between school years) the research role leads and reads
-  // as current; during the school year the standing leads and the role reads as prior.
-  const rising = label.indexOf("Rising") === 0;
-  const roleLine = document.getElementById("line-role");
-  const standingLine = document.getElementById("line-standing");
-  const lines = standingLine.parentNode;
-  document.getElementById("role-prefix").textContent = rising ? "" : "prev. ";
-  if (rising) lines.insertBefore(roleLine, standingLine);
-  else        lines.insertBefore(standingLine, roleLine);
+  const el = document.getElementById("standing");
+  if (el) el.textContent = label.toLowerCase();   // reads inline in the bio sentence
+
+  // Role under the name: plain during the summer it happened, "prev." the school
+  // year after, hidden otherwise (nothing planned yet).
+  const roleEl = document.getElementById("role");
+  const pre = document.getElementById("role-prefix");
+  if (roleEl && pre){
+    if (label === ROLE_CURRENT) pre.textContent = "";
+    else if (label === ROLE_RECENT) pre.textContent = "prev. ";
+    else roleEl.hidden = true;
+  }
 
   document.getElementById("year").textContent = today.getFullYear();
 })();
