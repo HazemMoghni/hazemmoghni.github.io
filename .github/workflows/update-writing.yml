@@ -24,7 +24,7 @@ jobs:
       # at Substack and the step skips cleanly instead of failing the whole run.
       - name: Fetch Substack feed (skips if blocked/unreachable)
         env:
-          FEED_URL: "https://hazemhasan.substack.com/feed"
+          FEED_URL: "https://substack-feed.hazemabdelmughni.workers.dev/"
         run: |
           if curl -sS --fail --retry 3 --retry-delay 3 --retry-all-errors --compressed \
                -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
