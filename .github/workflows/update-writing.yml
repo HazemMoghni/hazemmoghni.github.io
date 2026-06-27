@@ -18,17 +18,31 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Fetch Substack feed (curl's TLS fingerprint passes Cloudflare)
+      # Substack/Cloudflare hard-blocks GitHub's runner IP range (403), so FEED_URL
+      # must point at a relay that fetches from a non-blocked IP — e.g. a Cloudflare
+      # Worker (see scripts/feed-proxy.worker.js). Until that's set it points straight
+      # at Substack and the step skips cleanly instead of failing the whole run.
+      - name: Fetch Substack feed (skips if blocked/unreachable)
+        env:
+          FEED_URL: "https://hazemhasan.substack.com/feed"
         run: |
-          curl -sS --fail --retry 4 --retry-delay 3 --retry-all-errors --compressed \
-            -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
-            -H "Accept: application/rss+xml, application/xml;q=0.9, */*;q=0.5" \
-            -H "Accept-Language: en-US,en;q=0.9" \
-            "https://hazemhasan.substack.com/feed" -o feed.xml
-          echo "fetched $(wc -c < feed.xml) bytes"
+          if curl -sS --fail --retry 3 --retry-delay 3 --retry-all-errors --compressed \
+               -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
+               -H "Accept: application/rss+xml, application/xml;q=0.9, */*;q=0.5" \
+               "$FEED_URL" -o feed.xml; then
+            echo "fetched $(wc -c < feed.xml) bytes"
+          else
+            echo "::warning::Feed unreachable from the runner (Substack blocks GitHub IPs). Point FEED_URL at a relay. Skipping update."
+            rm -f feed.xml
+          fi
 
       - name: Regenerate writing list from the feed
-        run: python3 scripts/update_writing.py feed.xml
+        run: |
+          if [ -s feed.xml ]; then
+            python3 scripts/update_writing.py feed.xml
+          else
+            echo "No feed fetched — nothing to update this run."
+          fi
 
       - name: Commit if changed
         run: |
