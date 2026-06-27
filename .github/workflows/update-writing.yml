@@ -18,8 +18,17 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Regenerate writing list from Substack
-        run: python3 scripts/update_writing.py
+      - name: Fetch Substack feed (curl's TLS fingerprint passes Cloudflare)
+        run: |
+          curl -sS --fail --retry 4 --retry-delay 3 --retry-all-errors --compressed \
+            -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
+            -H "Accept: application/rss+xml, application/xml;q=0.9, */*;q=0.5" \
+            -H "Accept-Language: en-US,en;q=0.9" \
+            "https://hazemhasan.substack.com/feed" -o feed.xml
+          echo "fetched $(wc -c < feed.xml) bytes"
+
+      - name: Regenerate writing list from the feed
+        run: python3 scripts/update_writing.py feed.xml
 
       - name: Commit if changed
         run: |
