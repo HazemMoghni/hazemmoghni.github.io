@@ -3,10 +3,15 @@
 
 Replaces everything between the WRITING:START and WRITING:END markers with the
 N most recent posts. Stdlib only — no pip installs needed on the runner.
+
+Substack sits behind Cloudflare, which 403s plain `Python-urllib` requests
+(especially from datacenter IPs like GitHub Actions runners). So we request with
+a full browser User-Agent + headers and retry a few times.
 """
 import html
 import pathlib
 import re
+import time
 import urllib.request
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
@@ -18,13 +23,32 @@ INDEX = pathlib.Path(__file__).resolve().parent.parent / "index.html"
 START = "        <!-- WRITING:START (auto-generated from Substack; do not edit by hand) -->"
 END = "        <!-- WRITING:END -->"
 
+HEADERS = {
+    "User-Agent": ("Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 "
+                   "(KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36"),
+    "Accept": ("application/rss+xml, application/atom+xml, application/xml;q=0.9, "
+               "text/xml;q=0.8, */*;q=0.5"),
+    "Accept-Language": "en-US,en;q=0.9",
+    "Cache-Control": "no-cache",
+}
+
 
 def fetch_items():
-    req = urllib.request.Request(FEED, headers={"User-Agent": "Mozilla/5.0 (hazemh.com writing-updater)"})
-    with urllib.request.urlopen(req, timeout=30) as resp:
-        data = resp.read()
-    root = ET.fromstring(data)
-    return root.findall("./channel/item")[:COUNT]
+    last = None
+    for attempt in range(1, 4):
+        try:
+            req = urllib.request.Request(FEED, headers=HEADERS)
+            with urllib.request.urlopen(req, timeout=30) as resp:
+                data = resp.read()
+            items = ET.fromstring(data).findall("./channel/item")
+            if items:
+                return items[:COUNT]
+            last = "feed parsed but had no <item> entries"
+        except Exception as exc:  # noqa: BLE001 - report and retry
+            last = repr(exc)
+        print(f"attempt {attempt}/3 failed: {last}")
+        time.sleep(3)
+    raise SystemExit(f"Could not fetch the Substack feed: {last}")
 
 
 def render(items):
@@ -45,8 +69,6 @@ def render(items):
 
 def main():
     items = fetch_items()
-    if not items:
-        raise SystemExit("No items found in feed; aborting without changes.")
     block = render(items)
     text = INDEX.read_text(encoding="utf-8")
     pattern = re.compile(re.escape(START) + r".*?" + re.escape(END), re.S)
