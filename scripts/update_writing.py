@@ -62,14 +62,20 @@ def load_items():
 def render(items):
     rows = []
     for it in items:
-        title = (it.findtext("title") or "").strip()
+        title = html.unescape((it.findtext("title") or "").strip())
         link = (it.findtext("link") or "").strip()
+        subtitle = html.unescape((it.findtext("description") or "").strip())
         dt = parsedate_to_datetime(it.findtext("pubDate"))
         date = f"{dt:%B} {dt.day}, {dt.year}"  # e.g. "May 1, 2026"
+        sub = (f'\n          <span class="sub">{html.escape(subtitle, quote=False)}</span>'
+               if subtitle else "")
         rows.append(
             "        <li>\n"
-            f'          <a href="{html.escape(link)}">{html.escape(title, quote=False)}</a>\n'
-            f'          <span class="meta mono">{date}</span>\n'
+            '          <div class="w-head">\n'
+            f'            <a href="{html.escape(link)}">{html.escape(title, quote=False)}</a>\n'
+            f'            <span class="meta mono">{date}</span>\n'
+            "          </div>"
+            f'{sub}\n'
             "        </li>"
         )
     return START + "\n" + "\n".join(rows) + "\n" + END
