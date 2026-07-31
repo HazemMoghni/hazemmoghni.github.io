@@ -192,7 +192,7 @@
         <img class="avatar" src="headshot.jpg" alt="Hazem Hassan" width="84" height="84">
         <div class="id-text">
           <h1>Hazem Hassan</h1>
-          <p class="status mono" id="role"><span id="role-prefix"></span>Undergraduate Researcher @ <a href="https://dair.seas.upenn.edu/">DAIR Lab</a>, Penn</p>
+          <p class="status mono" id="role"><span id="role-standing">Rising Sophomore</span> @ Penn</p>
           <p class="status mono">Philadelphia, USA</p>
         </div>
       </div>
@@ -272,12 +272,6 @@
 const ENTRY_FALL_YEAR = 2025;          // first fall enrolled
 const STANDINGS = ["First-year", "Sophomore", "Junior", "Senior"];
 
-// Role shown under the name: plain during ROLE_CURRENT (the summer it happened),
-// "prev." during ROLE_RECENT (the school year after), hidden otherwise (until a
-// new role is added — update these two and the #role line when that happens).
-const ROLE_CURRENT = "Rising Sophomore";
-const ROLE_RECENT  = "Sophomore";
-
 // First day of fall classes, by calendar year.
 const FALL_START = {
   2025: "2025-08-26",
@@ -325,15 +319,10 @@ function buildEvents(){
   const el = document.getElementById("standing");
   if (el) el.textContent = label.toLowerCase();   // reads inline in the bio sentence
 
-  // Role under the name: plain during the summer it happened, "prev." the school
-  // year after, hidden otherwise (nothing planned yet).
-  const roleEl = document.getElementById("role");
-  const pre = document.getElementById("role-prefix");
-  if (roleEl && pre){
-    if (label === ROLE_CURRENT) pre.textContent = "";
-    else if (label === ROLE_RECENT) pre.textContent = "prev. ";
-    else roleEl.hidden = true;
-  }
+  // Line under the name: the standing, title-cased ("Sophomore @ Penn").
+  // Replace this line by hand with a job when one starts.
+  const roleEl = document.getElementById("role-standing");
+  if (roleEl) roleEl.textContent = label;
 
   document.getElementById("year").textContent = today.getFullYear();
 })();
