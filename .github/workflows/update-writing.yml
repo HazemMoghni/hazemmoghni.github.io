@@ -18,23 +18,32 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Substack/Cloudflare hard-blocks GitHub's runner IP range (403), so FEED_URL
-      # must point at a relay that fetches from a non-blocked IP — e.g. a Cloudflare
-      # Worker (see scripts/feed-proxy.worker.js). Until that's set it points straight
-      # at Substack and the step skips cleanly instead of failing the whole run.
+      # Substack/Cloudflare blocks GitHub's runner IP range, so FEED_URL points at a
+      # relay that fetches from a non-blocked IP (Cloudflare Worker — see
+      # scripts/feed-proxy.worker.js).
+      #
+      # Substack also rate-limits (HTTP 429). Retries must be spread over minutes, not
+      # seconds: bunched retries all land inside the same throttle window and fail
+      # together, which silently skipped updates. Back off 30s/60s/90s/120s (~5 min).
       - name: Fetch Substack feed (skips if blocked/unreachable)
         env:
           FEED_URL: "https://substack-feed.hazemabdelmughni.workers.dev/"
         run: |
-          if curl -sS --fail --retry 3 --retry-delay 3 --retry-all-errors --compressed \
-               -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
-               -H "Accept: application/rss+xml, application/xml;q=0.9, */*;q=0.5" \
-               "$FEED_URL" -o feed.xml; then
-            echo "fetched $(wc -c < feed.xml) bytes"
-          else
-            echo "::warning::Feed unreachable from the runner (Substack blocks GitHub IPs). Point FEED_URL at a relay. Skipping update."
+          for attempt in 1 2 3 4 5; do
+            code=$(curl -sS --compressed -w '%{http_code}' \
+              -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
+              -H "Accept: application/rss+xml, application/xml;q=0.9, */*;q=0.5" \
+              -H "Cache-Control: no-cache" \
+              "$FEED_URL" -o feed.xml) || code="000"
+            if [ "$code" = "200" ] && [ -s feed.xml ]; then
+              echo "fetched $(wc -c < feed.xml) bytes on attempt $attempt"
+              exit 0
+            fi
+            echo "attempt $attempt/5 failed (HTTP $code)"
             rm -f feed.xml
-          fi
+            if [ "$attempt" -lt 5 ]; then sleep $((attempt * 30)); fi
+          done
+          echo "::warning::Feed unreachable after 5 attempts over ~5 minutes (last HTTP $code). Skipping update."
 
       - name: Regenerate writing list from the feed
         run: |
