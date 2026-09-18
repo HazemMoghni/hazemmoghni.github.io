@@ -181,7 +181,10 @@
     color:var(--accent);
     cursor:help;
   }
-  .fn-note{
+  /* the note text lives in CSS so it stays out of the DOM and out of
+     anything the reader selects and copies from the paragraph */
+  .fn::after{
+    content:"yes, that's a real major";
     position:absolute;
     bottom:calc(100% + .55em);
     left:50%;
@@ -204,20 +207,20 @@
     pointer-events:none;
     transition:opacity .15s ease, transform .15s ease, visibility .15s;
   }
-  .fn:hover .fn-note,
-  .fn:focus-within .fn-note{
+  .fn:hover::after,
+  .fn:focus-within::after{
     opacity:1;
     visibility:visible;
     transform:translateX(-50%);
   }
   @media (prefers-reduced-motion: reduce){
-    .fn-note{transition:none}
+    .fn::after{transition:none}
   }
   /* narrow screens: a centred tooltip would run off the edge, so the note
      drops below the paragraph and spans the column, like a real footnote */
   @media (max-width:30rem){
     .fn{position:static}
-    .fn-note{
+    .fn::after{
       top:calc(100% + .6em);
       bottom:auto;
       left:0;
@@ -226,8 +229,8 @@
       max-width:none;
       transform:translateY(3px);
     }
-    .fn:hover .fn-note,
-    .fn:focus-within .fn-note{transform:none}
+    .fn:hover::after,
+    .fn:focus-within::after{transform:none}
   }
 
   /* quiet page-load motion */
@@ -258,7 +261,7 @@
     </header>
 
     <p class="bio reveal">
-      I'm a <span class="standing" id="standing">rising sophomore</span> studying AI at Penn<span class="fn"><button class="fn-mark" type="button" aria-label="Footnote: yes, that's a real major">1</button><span class="fn-note" aria-hidden="true">yes, that's a real major</span></span>, where I run
+      I'm a <span class="standing" id="standing">rising sophomore</span> studying AI<span class="fn"><button class="fn-mark" type="button" aria-label="Footnote: yes, that's a real major">1</button></span> at Penn, where I run
       <a href="https://www.eapenn.org">Effective Altruism</a> and Safe AI at Penn, am a
       <a href="https://perryworldhouse.upenn.edu/opportunities/student-opportunities/world-house-student-fellows/">Perry World House Fellow</a>,
       and TA for Engineering Ethics. I write occasionally about philosophy
