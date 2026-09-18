@@ -115,7 +115,7 @@
   .status a:hover{color:var(--accent);text-decoration-color:var(--accent)}
 
   /* prose */
-  .bio{margin:0 0 2.6rem;color:var(--ink);line-height:1.65;text-wrap:pretty}
+  .bio{position:relative;margin:0 0 2.6rem;color:var(--ink);line-height:1.65;text-wrap:pretty}
   .bio a{color:var(--accent);text-decoration:underline;text-decoration-color:var(--hair);text-decoration-thickness:1px;text-underline-offset:.18em;transition:text-decoration-color .15s ease}
   .bio a:hover{text-decoration-color:var(--accent)}
 
@@ -171,6 +171,65 @@
     .id{flex-direction:column;align-items:flex-start;gap:1rem}
   }
 
+  /* footnote marker — reveals its note on hover, focus or tap */
+  .fn{position:relative;display:inline}
+  .fn-mark{
+    appearance:none;-webkit-appearance:none;
+    background:none;border:0;margin:0;padding:0 0 0 .12em;
+    font:inherit;font-size:.66em;line-height:1;
+    vertical-align:super;
+    color:var(--accent);
+    cursor:help;
+  }
+  .fn-note{
+    position:absolute;
+    bottom:calc(100% + .55em);
+    left:50%;
+    transform:translateX(-50%) translateY(3px);
+    z-index:5;
+    width:max-content;
+    max-width:min(17rem, calc(100vw - 3rem));
+    padding:.5rem .65rem;
+    background:var(--token);
+    border:1px solid var(--hair);
+    border-radius:6px;
+    color:var(--ink);
+    font-family:ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+    font-size:.72rem;
+    line-height:1.45;
+    letter-spacing:.01em;
+    text-align:left;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .15s ease, transform .15s ease, visibility .15s;
+  }
+  .fn:hover .fn-note,
+  .fn:focus-within .fn-note{
+    opacity:1;
+    visibility:visible;
+    transform:translateX(-50%);
+  }
+  @media (prefers-reduced-motion: reduce){
+    .fn-note{transition:none}
+  }
+  /* narrow screens: a centred tooltip would run off the edge, so the note
+     drops below the paragraph and spans the column, like a real footnote */
+  @media (max-width:30rem){
+    .fn{position:static}
+    .fn-note{
+      top:calc(100% + .6em);
+      bottom:auto;
+      left:0;
+      right:0;
+      width:auto;
+      max-width:none;
+      transform:translateY(3px);
+    }
+    .fn:hover .fn-note,
+    .fn:focus-within .fn-note{transform:none}
+  }
+
   /* quiet page-load motion */
   .reveal{opacity:0;transform:translateY(6px);animation:rise .6s cubic-bezier(.2,.7,.2,1) forwards}
   .reveal:nth-child(1){animation-delay:.02s}
@@ -199,7 +258,7 @@
     </header>
 
     <p class="bio reveal">
-      I'm a <span class="standing" id="standing">rising sophomore</span> studying AI at Penn (yes, that's a major), where I run
+      I'm a <span class="standing" id="standing">rising sophomore</span> studying AI at Penn<span class="fn"><button class="fn-mark" type="button" aria-label="Footnote: yes, that's a real major">1</button><span class="fn-note" aria-hidden="true">yes, that's a real major</span></span>, where I run
       <a href="https://www.eapenn.org">Effective Altruism</a> and Safe AI at Penn, am a
       <a href="https://perryworldhouse.upenn.edu/opportunities/student-opportunities/world-house-student-fellows/">Perry World House Fellow</a>,
       and TA for Engineering Ethics. I write occasionally about philosophy
