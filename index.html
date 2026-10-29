@@ -69,10 +69,9 @@
   .links { display:flex; flex-wrap:wrap; gap:8px 22px; margin:34px 0 0; font-size:.9rem }
   footer { color:var(--muted); margin-top:20px; font-size:.8rem }
   .fn { position:relative; display:inline }
-  .fn-mark { appearance:none; border:0; background:none; padding:0 0 0 .16em; vertical-align:super; color:#006987; font:600 .64em/1 ui-sans-serif, system-ui, sans-serif; cursor:help }
+  .fn-mark { appearance:none; border:0; background:none; padding:0 0 0 .18em; vertical-align:super; position:relative; top:.22em; color:#006987; font:600 .76rem/1 ui-sans-serif, system-ui, sans-serif; cursor:help }
   .fn:after { content:attr(data-note); position:absolute; z-index:8; left:50%; bottom:calc(100% + .55rem); transform:translateX(-50%); padding:.42rem .58rem; width:max-content; max-width:min(15rem, calc(100vw - 3rem)); background:#f2f9fb; border:1px solid #c3dce5; border-radius:6px; color:#24404b; font:400 .8rem/1.4 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; visibility:hidden; pointer-events:none }
   .fn:hover:after,.fn:focus-within:after { visibility:visible }
-  .name-note .fn-mark { font-size:.38em; vertical-align:super; position:relative; top:.22em; padding-left:.18em }
   .name-note:after { bottom:calc(100% - .35rem) }
 
   @media(max-width:520px) {
@@ -106,8 +105,8 @@
     </header>
 
     <p class="bio reveal">
-      I'm a <span class="standing" id="standing">rising sophomore</span> studying AI<span class="fn" data-note="yes, that’s a real major"><button class="fn-mark" type="button" aria-label="Footnote: yes, that's a real major">2</button></span> at Penn, where I run
-      <a href="https://eapenn.org">Effective Altruism</a> and <a href="https://safeaipenn.org">Safe AI</a> at Penn, participate in Penn’s
+      I'm a <span class="standing" id="standing">rising sophomore</span> studying AI<span class="fn" data-note="yes, that's a real major"><button class="fn-mark" type="button" aria-label="Footnote: yes, that's a real major">2</button></span> at Penn, where I run
+      <a href="https://eapenn.org">Effective Altruism</a> and <a href="https://safeaipenn.org">Safe AI</a> at Penn, participate in Penn's
       <a href="https://perryworldhouse.upenn.edu/opportunities/student-opportunities/world-house-student-fellows/">premier global-affairs and policy program</a>,
       and TA for Engineering Ethics. <span id="work-intro">My most recent full-time job was an</span> <a id="current-work" href="https://www.linkedin.com/in/hazem-h/">undergraduate researcher at DAIR Lab</a>. I like to write about <a class="quiet-link" href="https://hazemhasan.substack.com/t/philosophy">philosophy</a>, <a class="quiet-link" href="https://hazemhasan.substack.com/t/ai">artificial intelligence</a>, and <a class="quiet-link" href="https://hazemhasan.substack.com/t/policy">policy</a> (see below). I also
       <a class="quiet-link" href="https://www.metaculus.com/accounts/profile/289631/">forecast</a> geopolitics and
