@@ -44,7 +44,7 @@
   a:hover { color:#003f5b; text-decoration-color:#003f5b }
   a:focus-visible,button:focus-visible { outline:2px solid #167696; outline-offset:3px }
   .wrap { max-width:36rem; margin:0 auto; padding:0 26px 50px; background:linear-gradient(to bottom, rgba(255,255,255,.18) 0, rgba(255,255,255,.35) 125px, rgba(255,255,255,.85) 190px, #fff 216px), var(--sky-image) center top / 100% auto no-repeat }
-  .mono { font-family:ui-monospace, "SF Mono", SFMono-Regular, Menlo, Consolas, monospace; font-size:.82rem; letter-spacing:.01em }
+  .mono { font-family:inherit; font-size:.88rem; letter-spacing:normal }
   header { position:relative; margin:0 -26px 35px; padding:clamp(3.5rem,12vh,8rem) 34px 0; overflow:visible; min-height:0 }
   .sky-art { position:absolute; bottom:0; left:0; width:100%; height:120px; pointer-events:none }
   .id { position:relative; z-index:1; display:flex; gap:19px; align-items:center }
@@ -63,11 +63,11 @@
   .writing .w-head a, #current-work, .quiet-link { color:var(--ink); text-decoration:none }
   .writing .w-head a:hover, #current-work:hover, .quiet-link:hover { color:#006987; text-decoration:none }
   .writing .w-head a { font-weight:600; font-size:1.02rem; line-height:1.4 }
-  .writing .meta { color:var(--muted); font-size:.78rem; white-space:nowrap; flex:none }
+  .writing .meta { color:var(--muted); font-size:.82rem; white-space:nowrap; flex:none }
   .writing .sub { display:block; color:var(--muted); font-size:.88rem; line-height:1.5; margin-top:5px; max-width:530px }
   .archive { display:inline-block; margin-top:4px; font-size:.9rem }
   .links { display:flex; flex-wrap:wrap; gap:8px 22px; margin:34px 0 0; font-size:.9rem }
-  footer { color:var(--muted); margin-top:20px; font-size:.8rem }
+  footer { color:var(--muted); margin-top:20px; font-size:.85rem }
   .fn { position:relative; display:inline }
   .fn-mark { appearance:none; border:0; background:none; padding:0 0 0 .18em; vertical-align:super; position:relative; top:.22em; color:#006987; font:600 .76rem/1 ui-sans-serif, system-ui, sans-serif; cursor:help }
   .fn:after { content:attr(data-note); position:absolute; z-index:8; left:50%; bottom:calc(100% + .55rem); transform:translateX(-50%); padding:.42rem .58rem; width:max-content; max-width:min(15rem, calc(100vw - 3rem)); background:#f2f9fb; border:1px solid #c3dce5; border-radius:6px; color:#24404b; font:400 .8rem/1.4 ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif; visibility:hidden; pointer-events:none }
