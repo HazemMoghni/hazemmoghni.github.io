@@ -2,8 +2,8 @@ name: Update writing from Substack
 
 on:
   schedule:
-    - cron: "0 12 * * *"   # daily at 12:00 UTC
-  workflow_dispatch:        # allow manual runs from the Actions tab
+    - cron: "17 */6 * * *" # Every six hours, away from the top of the hour
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -17,15 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-
-      # Substack/Cloudflare blocks GitHub's runner IP range, so FEED_URL points at a
-      # relay that fetches from a non-blocked IP (Cloudflare Worker — see
-      # scripts/feed-proxy.worker.js).
-      #
-      # Substack also rate-limits (HTTP 429). Retries must be spread over minutes, not
-      # seconds: bunched retries all land inside the same throttle window and fail
-      # together, which silently skipped updates. Back off 30s/60s/90s/120s (~5 min).
-      - name: Fetch Substack feed (skips if blocked/unreachable)
+      - name: Fetch Substack feed
         env:
           FEED_URL: "https://substack-feed.hazemabdelmughni.workers.dev/"
         run: |
@@ -36,23 +28,17 @@ jobs:
               -H "Cache-Control: no-cache" \
               "$FEED_URL" -o feed.xml) || code="000"
             if [ "$code" = "200" ] && [ -s feed.xml ]; then
-              echo "fetched $(wc -c < feed.xml) bytes on attempt $attempt"
+              echo "Fetched feed on attempt $attempt"
               exit 0
             fi
-            echo "attempt $attempt/5 failed (HTTP $code)"
+            echo "Attempt $attempt/5 failed (HTTP $code)"
             rm -f feed.xml
             if [ "$attempt" -lt 5 ]; then sleep $((attempt * 30)); fi
           done
-          echo "::warning::Feed unreachable after 5 attempts over ~5 minutes (last HTTP $code). Skipping update."
-
-      - name: Regenerate writing list from the feed
-        run: |
-          if [ -s feed.xml ]; then
-            python3 scripts/update_writing.py feed.xml
-          else
-            echo "No feed fetched — nothing to update this run."
-          fi
-
+          echo "::error::Feed unreachable after 5 attempts (last HTTP $code)."
+          exit 1
+      - name: Regenerate writing list from feed
+        run: python3 scripts/update_writing.py feed.xml
       - name: Commit if changed
         run: |
           if [ -n "$(git status --porcelain index.html)" ]; then
@@ -61,7 +47,6 @@ jobs:
             git add index.html
             git commit -m "Auto-update writing list from Substack"
             git push
-            echo "Pushed updated writing list."
           else
             echo "No changes to commit."
           fi
