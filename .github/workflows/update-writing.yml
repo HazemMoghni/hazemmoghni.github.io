@@ -2,7 +2,7 @@ name: Update writing from Substack
 
 on:
   schedule:
-    - cron: "17 */6 * * *" # Every six hours, away from the top of the hour
+    - cron: "17 1,13 * * *" # Two widely spaced attempts per day, UTC
   workflow_dispatch:
 
 permissions:
@@ -15,28 +15,20 @@ concurrency:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
     steps:
       - uses: actions/checkout@v4
       - name: Fetch Substack feed
         env:
           FEED_URL: "https://substack-feed.hazemabdelmughni.workers.dev/"
         run: |
-          for attempt in 1 2 3 4 5; do
-            code=$(curl -sS --compressed -w '%{http_code}' \
-              -A "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0.0.0 Safari/537.36" \
-              -H "Accept: application/rss+xml, application/xml;q=0.9, */*;q=0.5" \
-              -H "Cache-Control: no-cache" \
-              "$FEED_URL" -o feed.xml) || code="000"
-            if [ "$code" = "200" ] && [ -s feed.xml ]; then
-              echo "Fetched feed on attempt $attempt"
-              exit 0
-            fi
-            echo "Attempt $attempt/5 failed (HTTP $code)"
-            rm -f feed.xml
-            if [ "$attempt" -lt 5 ]; then sleep $((attempt * 30)); fi
-          done
-          echo "::error::Feed unreachable after 5 attempts (last HTTP $code)."
-          exit 1
+          code=$(curl -sS --compressed --max-time 60 -w '%{http_code}' \
+            -H "Accept: application/rss+xml, application/xml;q=0.9, */*;q=0.5" \
+            "$FEED_URL" -o feed.xml) || code="000"
+          if [ "$code" != "200" ] || [ ! -s feed.xml ]; then
+            echo "::error::Feed unavailable (HTTP $code). The next scheduled run will try again."
+            exit 1
+          fi
       - name: Regenerate writing list from feed
         run: python3 scripts/update_writing.py feed.xml
       - name: Commit if changed
