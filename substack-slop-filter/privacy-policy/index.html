@@ -1,16 +1,50 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Substack Slop Filter Privacy Policy</title><style>body{font:17px/1.6 system-ui,sans-serif;max-width:720px;margin:4rem auto;padding:0 1.25rem;color:#292929}h1,h2{line-height:1.2}h2{font-size:1.2rem;margin-top:2rem}a{color:#075e5b}</style></head><body>
-<h1>Substack Slop Filter Privacy Policy</h1>
-<p>Last updated: October 30, 2026</p>
-<p>Substack Slop Filter is a browser extension that filters Substack feed items and can show profile statistics based on Substack's visible labels.</p>
-<h2>Information processed</h2>
-<p>On Substack pages, the extension reads page content, including visible labels, profile identifiers and article links, to hide matching items and calculate optional profile statistics. It also reads the current page URL. This processing takes place in your browser. The extension does not send this information to the developer or any third party and does not use analytics or advertising.</p>
-<h2>Storage and deletion</h2>
-<p>The extension saves your filter and display preferences using browser extension storage on your device. It does not save the content it reads from Substack as browsing history or a profile database. Preferences remain until you change them, clear the extension's data, or uninstall the extension.</p>
-<h2>Sharing and limited use</h2>
-<p>The extension does not sell or transfer user data. Its use of data is limited to providing its filtering and profile-display features and complies with the Chrome Web Store User Data Policy, including its Limited Use requirements.</p>
-<h2>Other services</h2>
-<p>Substack and your browser operate under their own privacy policies. This policy covers the extension itself, not those services.</p>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Substack Slop Filter: Privacy Policy</title>
+<style>
+  body { font: 16px/1.6 system-ui, -apple-system, Segoe UI, sans-serif; color: #202124; background: #fff; max-width: 720px; margin: 0 auto; padding: 32px 16px 64px; }
+  h1 { font-size: 26px; margin: 0 0 4px; }
+  h2 { font-size: 18px; margin: 28px 0 8px; }
+  p, li { margin: 0 0 10px; }
+  .meta { color: #5f6368; margin-bottom: 24px; }
+  code { font-size: 14px; background: #f1f3f4; padding: 1px 4px; border-radius: 3px; }
+</style>
+</head>
+<body>
+<h1>Substack Slop Filter: Privacy Policy</h1>
+<p class="meta">Effective October 30, 2026. Applies to version 1.6.0 and later.</p>
+
+<p>Substack Slop Filter is a browser extension that hides Substack feed items carrying Substack's "Fully AI-assisted text" or "Not scanned" labels and can show a count or percentage of labeled posts beside a profile name. This policy explains what the extension accesses and what it does with it.</p>
+
+<h2>What the extension accesses</h2>
+<ul>
+  <li><strong>Substack page content.</strong> On <code>substack.com</code> and <code>*.substack.com</code> pages, the extension reads the page to find Substack's AI labels and hide matching feed items.</li>
+  <li><strong>Substack profile data.</strong> When profile statistics are turned on and you open a profile page (<code>substack.com/@handle</code> and its Activity, Posts, Replies and Likes tabs), the extension requests that profile's public information and its most recent posts (up to 100) from Substack's own servers, using your existing Substack session in the browser. It reads each post's author and AI-label fields to calculate the statistic.</li>
+  <li><strong>Profile identifiers.</strong> To make those requests, the extension reads the profile handle from the page address and the numeric profile ID returned by Substack.</li>
+  <li><strong>Your settings.</strong> The extension stores your filter and profile-display choices with the browser's extension storage.</li>
+</ul>
+
+<h2>What the extension does with it</h2>
+<ul>
+  <li>All processing happens in your browser. Profile statistics are kept in memory in the open tab for up to 10 minutes and are discarded when the tab is closed or reloaded.</li>
+  <li>The extension sends no data to the developer or to any third party. Its only network requests go to Substack, the site you are already using.</li>
+  <li>The extension does not collect, sell, share or transfer user data, does not use it for advertising, creditworthiness or lending purposes, and does not use it for any purpose unrelated to its single purpose.</li>
+  <li>The extension does not change your Substack account, does not post or subscribe on your behalf, and does not perform its own AI detection. Labels come from Substack.</li>
+</ul>
+
+<h2>Remote code</h2>
+<p>The extension does not load or execute remote code. All of its code ships in the installed package.</p>
+
+<h2>Removing data</h2>
+<p>Removing the extension deletes its stored settings. Profile statistics are never written to storage.</p>
+
+<h2>Changes</h2>
+<p>If this policy changes, the updated version will be posted at this address with a new effective date.</p>
+
 <h2>Contact</h2>
-<p>Questions: hazem.business@proton.me</p>
-</body></html>
+<p>Hazem Hassan, hazem.business@proton.me</p>
+</body>
+</html>
