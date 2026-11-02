@@ -18,6 +18,7 @@ import time
 import urllib.request
 import xml.etree.ElementTree as ET
 from email.utils import parsedate_to_datetime
+from zoneinfo import ZoneInfo
 
 FEED = "https://hazemhasan.substack.com/feed"
 COUNT = 3
@@ -65,7 +66,8 @@ def render(items):
         title = html.unescape((it.findtext("title") or "").strip())
         link = (it.findtext("link") or "").strip()
         subtitle = html.unescape((it.findtext("description") or "").strip())
-        dt = parsedate_to_datetime(it.findtext("pubDate"))
+        # pubDate is UTC; show the Eastern date so it matches Substack.
+        dt = parsedate_to_datetime(it.findtext("pubDate")).astimezone(ZoneInfo("America/New_York"))
         date = f"{dt:%B} {dt.day}, {dt.year}"  # e.g. "May 1, 2026"
         sub = (f'\n          <span class="sub">{html.escape(subtitle, quote=False)}</span>'
                if subtitle else "")
